@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">DicodingRecycleView</string>
+    <string-array name="club_name">
+        <item>Liverpool</item>
+        <item>Manchester United</item>
+        <item>Manchester City</item>
+        <item>Arsenal</item>
+        <item>Chelsea FC</item>
+        <item>Totenham Hotspur</item>
+        <item>FC Barcelona</item>
+    </string-array>
+
+    <array name="club_logo">
+        <item>@drawable/logo_liverpool</item>
+        <item>@drawable/logo_manutd</item>
+        <item>@drawable/logo_mancity</item>
+        <item>@drawable/logo_arsenal</item>
+        <item>@drawable/logo_chelsea</item>
+        <item>@drawable/logo_totenham</item>
+        <item>@drawable/logo_barcelona</item>
+    </array>
+</resources>
