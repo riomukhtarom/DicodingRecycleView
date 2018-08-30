@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         list.layoutManager = LinearLayoutManager(this)
         list.adapter = RecycleViewAdapter(this, items){
             val toast = Toast.makeText(this, it.name, Toast.LENGTH_SHORT)
+            toast.show()
         }
     }
 
