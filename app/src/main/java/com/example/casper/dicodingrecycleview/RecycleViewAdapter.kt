@@ -9,7 +9,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 
-class RecycleViewAdapter (private val context: Context, private val items: List<Item>) : RecyclerView.Adapter<RecycleViewAdapter.ViewHolder>() {
+class RecycleViewAdapter (private val context: Context, private val items: List<Item>, private val listener:(Item) -> Unit) : RecyclerView.Adapter<RecycleViewAdapter.ViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_list, parent, false))
@@ -22,16 +23,19 @@ class RecycleViewAdapter (private val context: Context, private val items: List<
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-        holder.bindItem(items[position])
+        holder.bindItem(items[position], listener)
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
         private val name = view.findViewById<TextView>(R.id.tv_name)
         private val image = view.findViewById<ImageView>(R.id.iv_image)
 
-        fun bindItem(items:Item){
+        fun bindItem(items:Item, listener:(Item) -> Unit){
             name.text = items.name
             Glide.with(itemView.context).load(items.logo).into(image)
+            itemView.setOnClickListener {
+                listener(items)
+            }
         }
     }
 
